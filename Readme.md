@@ -3,8 +3,9 @@
 https://quickstarts.snowflake.com/guide/terraforming_snowflake/index.html
 
 ```
-openssl genrsa -out ~/.ssh/snowflake_tf_snow_key 4096
-openssl rsa -in snowflake_tf_snow_key -pubout -out ~/.ssh/snowflake_tf_snow_key.pub
+$ openssl genrsa -out ~/.ssh/snowflake_tf_snow_key 4096
+$ openssl rsa -in snowflake_tf_snow_key -pubout -out ~/.ssh/snowflake_tf_snow_key.pub
+# create user having this pubkey at snowflake worksheet
 ```
 
 ```
@@ -15,7 +16,7 @@ $ export SNOWFLAKE_REGION="ap-northeast-1.aws"
 ```
 
 ```
-$ touch main.tf # init terraform
-$ touch .gitignore # to exclude terraform files
 $ terraform init
+$ tarraform plan
+$ terraform apply
 ```

@@ -30,12 +30,10 @@ provider "snowflake" {
   role  = "SECURITYADMIN"
 }
 
-
 resource "snowflake_role" "role" {
   provider = snowflake.security_admin
   name     = "TF_DEMO_SVC_ROLE"
 }
-
 
 resource "snowflake_database_grant" "grant" {
   provider          = snowflake.security_admin
@@ -45,14 +43,12 @@ resource "snowflake_database_grant" "grant" {
   with_grant_option = false
 }
 
-
 resource "snowflake_schema" "schema" {
   provider   = snowflake.sys_admin
   database   = snowflake_database.db.name
   name       = "TF_DEMO"
   is_managed = false
 }
-
 
 resource "snowflake_schema_grant" "grant" {
   provider          = snowflake.security_admin
@@ -63,7 +59,6 @@ resource "snowflake_schema_grant" "grant" {
   with_grant_option = false
 }
 
-
 resource "snowflake_warehouse_grant" "grant" {
   provider          = snowflake.security_admin
   warehouse_name    = snowflake_warehouse.warehouse.name
@@ -72,12 +67,10 @@ resource "snowflake_warehouse_grant" "grant" {
   with_grant_option = false
 }
 
-
 resource "tls_private_key" "svc_key" {
   algorithm = "RSA"
   rsa_bits  = 2048
 }
-
 
 resource "snowflake_user" "user" {
   provider          = snowflake.security_admin
@@ -87,7 +80,6 @@ resource "snowflake_user" "user" {
   default_namespace = "${snowflake_database.db.name}.${snowflake_schema.schema.name}"
   rsa_public_key    = substr(tls_private_key.svc_key.public_key_pem, 27, 398)
 }
-
 
 resource "snowflake_role_grants" "grants" {
   provider  = snowflake.security_admin
