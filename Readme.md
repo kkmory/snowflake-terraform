@@ -1,6 +1,9 @@
 # terraforming snowflake
 
-https://quickstarts.snowflake.com/guide/terraforming_snowflake/index.html
+Doc: https://registry.terraform.io/providers/chanzuckerberg/snowflake/latest
+
+Tutorial: https://quickstarts.snowflake.com/guide/terraforming_snowflake/index.html
+
 
 ```
 $ openssl genrsa -out ~/.ssh/snowflake_tf_snow_key 4096
