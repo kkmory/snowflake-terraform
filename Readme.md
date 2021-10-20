@@ -11,7 +11,7 @@ openssl rsa -in snowflake_tf_snow_key -pubout -out ~/.ssh/snowflake_tf_snow_key.
 $ export SNOWFLAKE_USER="tf-snow"
 $ export SNOWFLAKE_PRIVATE_KEY_PATH="~/.ssh/snowflake_tf_snow_key"
 $ export SNOWFLAKE_ACCOUNT="YOUR_ACCOUNT_LOCATOR"
-$ export SNOWFLAKE_REGION="YOUR_REGION_HERE"
+$ export SNOWFLAKE_REGION="ap-northeast-1.aws"
 ```
 
 ```
